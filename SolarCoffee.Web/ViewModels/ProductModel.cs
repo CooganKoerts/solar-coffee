@@ -15,3 +15,8 @@ namespace SolarCoffee.Web.ViewModels {
         public bool IsArchived { get; set; }
     }
 }
+
+/*
+    View Models can also be referred to as 'Data Transfer Objects' or DTOs.
+    This is used as a 'container' for data passed around the app in various places
+*/

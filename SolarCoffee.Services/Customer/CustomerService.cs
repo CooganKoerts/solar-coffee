@@ -101,3 +101,8 @@ namespace SolarCoffee.Services.Customer {
         }
     }
 }
+
+    /* 
+    *  It is better to have services that are concerned with overall application behavior rather than with individual
+    *  Data models
+    **/ 
