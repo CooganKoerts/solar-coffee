@@ -5,6 +5,13 @@ Solar Coffee Project
 I originally worked the tutorial for this from a Udemy course. I am now using this project as a way to study for my AWS Associate Dev certification by trying to use the AWS Services for this application and get it all hosted and working.
 
 
+# TODO
+1. Deploy project onto EC2 instance in a PUBLIC subnet
+2. Create a new RDS postgres DB in a PRIVATE subnet
+
+
+
+
 # Postgres helpful commands
 
 * Creating a User & DB.
