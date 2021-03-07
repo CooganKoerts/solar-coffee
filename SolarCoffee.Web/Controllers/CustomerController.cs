@@ -17,14 +17,14 @@ namespace SolarCoffee.Web.Controllers {
         }
 
         [HttpPost("/api/customer")]
-        public ActionResult CreateCustomer([FromBody] CustomerModel customer) {
+        public ActionResult CreateCustomer([FromBody] CustomerViewModel customer) {
             if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
             _logger.LogInformation("Creating a new customer");
             customer.CreatedOn = DateTime.UtcNow;
             customer.UpdatedOn = DateTime.UtcNow;
-            var customerData = CustomerMapper.SerializeCustomer(customer);
+            var customerData = CustomerMapper.SerializeCustomerToDataModel(customer);
             var newCustomer = _customerService.CreateCustomer(customerData);
             return Ok(newCustomer);
         }
@@ -35,12 +35,12 @@ namespace SolarCoffee.Web.Controllers {
             var customers = _customerService.GetAllCustomers();
             
             var customerModels = customers
-                .Select(customer => new CustomerModel {
+                .Select(customer => new CustomerViewModel {
                     Id = customer.Id,
                     FirstName = customer.FirstName,
                     LastName = customer.LastName,
                     PrimaryAddress = CustomerMapper
-                        .MapCustomerAddress(customer.PrimaryAddress),
+                        .SerializeCustomerAddressToViewModel(customer.PrimaryAddress),
                     CreatedOn = customer.CreatedOn,
                     UpdatedOn = customer.UpdatedOn
                 })

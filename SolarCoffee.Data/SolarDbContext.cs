@@ -17,3 +17,13 @@ namespace SolarCoffee.Data {
         public virtual DbSet<SalesOrderItem> SalesOrderItems { get; set; }
     }
 }
+
+/*
+ * 1.) In order to perform a DB migration you must install the following Packages:
+ *          Microsoft.EntityFrameworkCore
+ *          Microsoft.EntityFrameworkCore.Tools
+ * 2.) Open the terminal, be in the SolarCoffee.Web project and run the following commands:
+ *          dotnet tool install --global dotnet-ef (if dotnet-ef is not already installed)
+ *          dotnet ef --startup-project ../SolarCoffee.Web migrations add InitialMigration
+ *          dotnet ef --startup-project ../SolarCoffee.Web database update
+*/

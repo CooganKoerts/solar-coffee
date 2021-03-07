@@ -23,12 +23,12 @@ namespace SolarCoffee.Web.Controllers {
         /// <param name="product"></param>
         /// <returns></returns>
         [HttpPost("/api/product")]
-        public ActionResult AddProduct([FromBody] ProductModel product) {
+        public ActionResult AddProduct([FromBody] ProductViewModel product) {
             if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
             _logger.LogInformation("Adding product");
-            var newProduct = ProductMapper.SerializeProductModel(product);
+            var newProduct = ProductMapper.SerializeProductToDataModel(product);
             var newProductResponse = _productService.CreateProduct(newProduct);
             return Ok(newProductResponse);
         }
@@ -42,7 +42,7 @@ namespace SolarCoffee.Web.Controllers {
             _logger.LogInformation("Getting all products");
             var products = _productService.GetAllProducts();
             var productViewModels = products
-                .Select(ProductMapper.SerializeProductModel);
+                .Select(ProductMapper.SerializeProductToViewModel);
             return Ok(productViewModels);
         }
 

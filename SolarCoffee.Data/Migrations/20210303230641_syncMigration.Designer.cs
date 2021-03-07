@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SolarCoffee.Data;
@@ -9,9 +10,10 @@ using SolarCoffee.Data;
 namespace SolarCoffee.Data.Migrations
 {
     [DbContext(typeof(SolarDbContext))]
-    partial class SolarDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210303230641_syncMigration")]
+    partial class syncMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -345,7 +347,7 @@ namespace SolarCoffee.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductInventory");
+                    b.ToTable("ProductInventories");
                 });
 
             modelBuilder.Entity("SolarCoffee.Data.Models.ProductInventorySnapshot", b =>
