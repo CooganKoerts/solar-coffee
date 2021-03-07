@@ -17,7 +17,7 @@ namespace SolarCoffee.Web.Controllers {
         }
 
         [HttpPost("/api/customer")]
-        public ActionResult CreateCustomer([FromBody] CustomerModel customer) {
+        public ActionResult CreateCustomer([FromBody] CustomerViewModel customer) {
             if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
@@ -35,7 +35,7 @@ namespace SolarCoffee.Web.Controllers {
             var customers = _customerService.GetAllCustomers();
             
             var customerModels = customers
-                .Select(customer => new CustomerModel {
+                .Select(customer => new CustomerViewModel {
                     Id = customer.Id,
                     FirstName = customer.FirstName,
                     LastName = customer.LastName,

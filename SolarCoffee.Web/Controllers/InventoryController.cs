@@ -25,7 +25,7 @@ namespace SolarCoffee.Web.Controllers {
             _logger.LogInformation("Getting all inventory...");
             
             var inventory = _inventoryService.GetCurrentInventory()
-                .Select(pi => new ProductInventoryModel {
+                .Select(pi => new ProductInventoryViewModel {
                     Id = pi.Id,
                     Product = ProductMapper.SerializeProductModel(pi.Product),
                     IdealQuantity = pi.IdealQuantity,
@@ -64,7 +64,7 @@ namespace SolarCoffee.Web.Controllers {
                 // Get quantities grouped by id.
                 var snapshots = snapshotHistory
                     .GroupBy(hist => hist.Product, hist => hist.QuantityOnHand,
-                        (key, g) => new ProductInventorySnapshotModel {
+                        (key, g) => new ProductInventorySnapshotViewModel {
                             ProductId = key.Id,
                             QuantityOnHand = g.ToList()
                         })

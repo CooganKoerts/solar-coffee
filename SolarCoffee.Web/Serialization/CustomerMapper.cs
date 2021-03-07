@@ -9,8 +9,8 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="customer"></param>
         /// <returns></returns>
-        public static CustomerModel SerializeCustomer(Customer customer) {
-            return new CustomerModel {
+        public static CustomerViewModel SerializeCustomer(Customer customer) {
+            return new CustomerViewModel {
                 Id = customer.Id,
                 CreatedOn = customer.CreatedOn,
                 UpdatedOn = customer.UpdatedOn,
@@ -25,7 +25,7 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="customer"></param>
         /// <returns></returns>
-        public static Customer SerializeCustomer(CustomerModel customer) {
+        public static Customer SerializeCustomer(CustomerViewModel customer) {
             return new Customer {
                 CreatedOn = customer.CreatedOn,
                 UpdatedOn = customer.UpdatedOn,
@@ -40,8 +40,8 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        public static CustomerAddressModel MapCustomerAddress(CustomerAddress address) {
-            return new CustomerAddressModel {
+        public static CustomerAddressViewModel MapCustomerAddress(CustomerAddress address) {
+            return new CustomerAddressViewModel {
                 Id = address.Id,
                 AddressLine1 = address.AddressLine1,
                 AddressLine2 = address.AddressLine2,
@@ -59,7 +59,7 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        public static CustomerAddress MapCustomerAddress(CustomerAddressModel address) {
+        public static CustomerAddress MapCustomerAddress(CustomerAddressViewModel address) {
             return new CustomerAddress {
                 AddressLine1 = address.AddressLine1,
                 AddressLine2 = address.AddressLine2,

@@ -5,7 +5,7 @@ namespace SolarCoffee.Web.ViewModels {
     /// <summary>
     /// Snapshot view model
     /// </summary>
-    public class ProductInventorySnapshotModel {
+    public class ProductInventorySnapshotViewModel {
         public List<int> QuantityOnHand { get; set; }
         public int ProductId { get; set; }
     }
@@ -14,7 +14,7 @@ namespace SolarCoffee.Web.ViewModels {
     /// Snapshot history in format suitable for graphing
     /// </summary>
     public class SnapshotResponse {
-        public List<ProductInventorySnapshotModel> ProductInventorySnapshots { get; set; }
+        public List<ProductInventorySnapshotViewModel> ProductInventorySnapshots { get; set; }
         public List<DateTime> Timeline { get; set; }
     }
 }

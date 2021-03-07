@@ -23,7 +23,7 @@ namespace SolarCoffee.Web.Controllers {
         /// <param name="product"></param>
         /// <returns></returns>
         [HttpPost("/api/product")]
-        public ActionResult AddProduct([FromBody] ProductModel product) {
+        public ActionResult AddProduct([FromBody] ProductViewModel product) {
             if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
             }
