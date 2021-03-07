@@ -35,7 +35,7 @@ namespace SolarCoffee.Services.Customer {
                 _db.SaveChanges();
                 return new ServiceResponse<Data.Models.Customer> {
                     IsSuccess = true,
-                    Message = "New customer added",
+                    Message = "New customer added!",
                     Time = DateTime.UtcNow,
                     Data = customer
                 };
@@ -76,7 +76,7 @@ namespace SolarCoffee.Services.Customer {
                 return new ServiceResponse<bool> {
                     Time = now,
                     IsSuccess = true,
-                    Message = "Customer created!",
+                    Message = "Customer deleted!",
                     Data = true 
                 };
             }

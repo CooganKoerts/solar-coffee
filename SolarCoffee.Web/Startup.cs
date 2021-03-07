@@ -33,6 +33,7 @@ namespace SolarCoffee.Web
                 };
             });
 
+            // connection strings are located in appsettings.json
             services.AddDbContext<SolarDbContext>(
                 opts => {
                 opts.EnableDetailedErrors();

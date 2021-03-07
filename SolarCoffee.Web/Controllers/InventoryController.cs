@@ -50,15 +50,6 @@ namespace SolarCoffee.Web.Controllers {
 
         [HttpGet("/api/inventory/snapshot")]
         public ActionResult GetSnapshotHistory() {
-            
-            // ReSharper disable once InvalidXmlDocComment
-            /**
-             * {
-             *     timeline: [1, 2, 3 .. n],
-             *     inventory: [{ id: 1, qty: [43, 21, 32 .. n ] }, { id: 2, qty: [43, 12, 43 .. n]}]
-             * }
-             */
-            
             _logger.LogInformation("Getting snapshot history");
 
             try {
