@@ -10,8 +10,8 @@ using SolarCoffee.Data;
 namespace SolarCoffee.Data.Migrations
 {
     [DbContext(typeof(SolarDbContext))]
-    [Migration("20200209030602_Orders")]
-    partial class Orders
+    [Migration("20210307035002_AWSInitial")]
+    partial class AWSInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

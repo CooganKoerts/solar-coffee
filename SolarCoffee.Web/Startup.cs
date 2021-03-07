@@ -37,7 +37,8 @@ namespace SolarCoffee.Web
             services.AddDbContext<SolarDbContext>(
                 opts => {
                 opts.EnableDetailedErrors();
-                opts.UseNpgsql(Configuration.GetConnectionString("solar.dev"));
+                opts.UseNpgsql(Configuration.GetConnectionString("solar.aws"));
+                //opts.UseNpgsql(Configuration.GetConnectionString("solar.dev"));
             });
 
             services.AddTransient<IProductService, ProductService>();
