@@ -345,7 +345,7 @@ namespace SolarCoffee.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductInventory");
+                    b.ToTable("ProductInventories");
                 });
 
             modelBuilder.Entity("SolarCoffee.Data.Models.ProductInventorySnapshot", b =>
