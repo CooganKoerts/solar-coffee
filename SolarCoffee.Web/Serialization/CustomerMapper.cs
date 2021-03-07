@@ -9,14 +9,14 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="customer"></param>
         /// <returns></returns>
-        public static CustomerViewModel SerializeCustomer(Customer customer) {
+        public static CustomerViewModel SerializeCustomerToViewModel(Customer customer) {
             return new CustomerViewModel {
                 Id = customer.Id,
                 CreatedOn = customer.CreatedOn,
                 UpdatedOn = customer.UpdatedOn,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
-                PrimaryAddress = MapCustomerAddress(customer.PrimaryAddress),
+                PrimaryAddress = SerializeCustomerAddressToViewModel(customer.PrimaryAddress),
             };
         }
 
@@ -25,13 +25,13 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="customer"></param>
         /// <returns></returns>
-        public static Customer SerializeCustomer(CustomerViewModel customer) {
+        public static Customer SerializeCustomerToDataModel(CustomerViewModel customer) {
             return new Customer {
                 CreatedOn = customer.CreatedOn,
                 UpdatedOn = customer.UpdatedOn,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
-                PrimaryAddress = MapCustomerAddress(customer.PrimaryAddress),
+                PrimaryAddress = SerializeCustomerAddressToDataModel(customer.PrimaryAddress),
             };
         }
         
@@ -40,7 +40,7 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        public static CustomerAddressViewModel MapCustomerAddress(CustomerAddress address) {
+        public static CustomerAddressViewModel SerializeCustomerAddressToViewModel(CustomerAddress address) {
             return new CustomerAddressViewModel {
                 Id = address.Id,
                 AddressLine1 = address.AddressLine1,
@@ -59,7 +59,7 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="address"></param>
         /// <returns></returns>
-        public static CustomerAddress MapCustomerAddress(CustomerAddressViewModel address) {
+        public static CustomerAddress SerializeCustomerAddressToDataModel(CustomerAddressViewModel address) {
             return new CustomerAddress {
                 AddressLine1 = address.AddressLine1,
                 AddressLine2 = address.AddressLine2,

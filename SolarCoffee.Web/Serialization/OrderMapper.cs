@@ -15,12 +15,12 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="invoice"></param>
         /// <returns></returns>
-        public static SalesOrder SerializeInvoiceToOrder(InvoiceViewModel invoice) {
+        public static SalesOrder SerializeInvoiceToSalesOrderDataModel(InvoiceViewModel invoice) {
             var salesOrderItems = invoice.LineItems
                 .Select(item => new SalesOrderItem {
                     Id = item.Id,
                     Quantity = item.Quantity,
-                    Product = ProductMapper.SerializeProductModel(item.Product)
+                    Product = ProductMapper.SerializeProductToDataModel(item.Product)
                 }).ToList();
                 
             return new SalesOrder {
@@ -40,8 +40,8 @@ namespace SolarCoffee.Web.Serialization {
                 Id = order.Id,
                 CreatedOn = order.CreatedOn,
                 UpdatedOn = order.UpdatedOn,
-                SalesOrderItems = SerializeSalesOrderItems(order.SalesOrderItems),
-                Customer = CustomerMapper.SerializeCustomer(order.Customer),
+                SalesOrderItems = SerializeOrderItemsToSalesOrderItems(order.SalesOrderItems),
+                Customer = CustomerMapper.SerializeCustomerToViewModel(order.Customer),
                 IsPaid = order.IsPaid
             }).ToList();
         }
@@ -51,11 +51,11 @@ namespace SolarCoffee.Web.Serialization {
         /// </summary>
         /// <param name="orderItems"></param>
         /// <returns></returns>
-        private static List<SalesOrderItemViewModel> SerializeSalesOrderItems(IEnumerable<SalesOrderItem> orderItems) {
+        private static List<SalesOrderItemViewModel> SerializeOrderItemsToSalesOrderItems(IEnumerable<SalesOrderItem> orderItems) {
             return orderItems.Select(item => new SalesOrderItemViewModel {
                 Id = item.Id,
                 Quantity = item.Quantity,
-                Product = ProductMapper.SerializeProductModel(item.Product)
+                Product = ProductMapper.SerializeProductToViewModel(item.Product)
             }).ToList();
         }
     }

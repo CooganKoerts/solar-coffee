@@ -27,7 +27,7 @@ namespace SolarCoffee.Web.Controllers {
             var inventory = _inventoryService.GetCurrentInventory()
                 .Select(pi => new ProductInventoryViewModel {
                     Id = pi.Id,
-                    Product = ProductMapper.SerializeProductModel(pi.Product),
+                    Product = ProductMapper.SerializeProductToViewModel(pi.Product),
                     IdealQuantity = pi.IdealQuantity,
                     QuantityOnHand = pi.QuantityOnHand
                 })

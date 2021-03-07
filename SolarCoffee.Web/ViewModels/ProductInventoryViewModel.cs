@@ -1,4 +1,7 @@
 namespace SolarCoffee.Web.ViewModels {
+    /// <summary>
+    /// View model for a products inventory
+    /// </summary>    
     public class ProductInventoryViewModel {
         public int Id { get; set; }
         public int QuantityOnHand { get; set; }

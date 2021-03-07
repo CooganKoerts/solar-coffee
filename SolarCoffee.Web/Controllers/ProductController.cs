@@ -28,7 +28,7 @@ namespace SolarCoffee.Web.Controllers {
                 return BadRequest(ModelState);
             }
             _logger.LogInformation("Adding product");
-            var newProduct = ProductMapper.SerializeProductModel(product);
+            var newProduct = ProductMapper.SerializeProductToDataModel(product);
             var newProductResponse = _productService.CreateProduct(newProduct);
             return Ok(newProductResponse);
         }
@@ -42,7 +42,7 @@ namespace SolarCoffee.Web.Controllers {
             _logger.LogInformation("Getting all products");
             var products = _productService.GetAllProducts();
             var productViewModels = products
-                .Select(ProductMapper.SerializeProductModel);
+                .Select(ProductMapper.SerializeProductToViewModel);
             return Ok(productViewModels);
         }
 

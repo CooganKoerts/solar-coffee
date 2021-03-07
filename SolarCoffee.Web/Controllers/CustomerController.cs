@@ -24,7 +24,7 @@ namespace SolarCoffee.Web.Controllers {
             _logger.LogInformation("Creating a new customer");
             customer.CreatedOn = DateTime.UtcNow;
             customer.UpdatedOn = DateTime.UtcNow;
-            var customerData = CustomerMapper.SerializeCustomer(customer);
+            var customerData = CustomerMapper.SerializeCustomerToDataModel(customer);
             var newCustomer = _customerService.CreateCustomer(customerData);
             return Ok(newCustomer);
         }
@@ -40,7 +40,7 @@ namespace SolarCoffee.Web.Controllers {
                     FirstName = customer.FirstName,
                     LastName = customer.LastName,
                     PrimaryAddress = CustomerMapper
-                        .MapCustomerAddress(customer.PrimaryAddress),
+                        .SerializeCustomerAddressToViewModel(customer.PrimaryAddress),
                     CreatedOn = customer.CreatedOn,
                     UpdatedOn = customer.UpdatedOn
                 })

@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 
-namespace SolarCoffee.Web.ViewModels {
+namespace SolarCoffee.Web.ViewModels {  
+    /// <summary>
+    /// View model for a Customer's Order
+    /// </summary>    
     public class OrderViewModel {
         public int Id { get; set; }
         public DateTime CreatedOn { get; set; }

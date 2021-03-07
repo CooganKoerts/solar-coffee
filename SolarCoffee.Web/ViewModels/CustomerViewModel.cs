@@ -2,6 +2,9 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace SolarCoffee.Web.ViewModels {
+    /// <summary>
+    /// View model for a customer
+    /// </summary>
     public class CustomerViewModel {
         public int Id { get; set; }
         public DateTime CreatedOn { get; set; }
